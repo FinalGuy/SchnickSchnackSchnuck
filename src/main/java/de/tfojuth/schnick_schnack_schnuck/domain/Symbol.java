@@ -1,9 +1,11 @@
 package de.tfojuth.schnick_schnack_schnuck.domain;
 
-public sealed interface Symbol permits Schere, Stein, Papier {
+public enum Symbol {
 
-    default String toAsciiArt() {
-        return "~missing~";
+    SCHERE, STEIN, PAPIER;
+
+    String toAsciiArt() {
+        return "~ ascii art missing ~";
     }
 
 }
