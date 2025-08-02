@@ -13,7 +13,7 @@ public final class Spieler {
     }
 
     public Symbol weahleSymbol() {
-        throw new IllegalStateException("Not yet implemented");
+        return strategie.naechstesSymbol();
     }
 
     @Override

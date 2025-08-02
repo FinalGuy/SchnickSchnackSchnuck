@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class RundeTest {
+class PartieTest {
 
 
     @Nested
@@ -21,23 +21,23 @@ class RundeTest {
             final var papier = new Spieler("Bob", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Runde(schere, papier).spielen();
+            final var gewinner = new Partie(schere, papier).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(schere);
+            assertThat(gewinner).isPresent().contains(schere);
         }
 
         @Test
         void schereGewinntGegenPapierSpielerB() {
             // given
-            final var papier = new Spieler("Hinz", new ImmerPapierStrategie());
-            final var schere = new Spieler("Kunz", new ImmerSchereStrategie());
+            final var papier = new Spieler("John", new ImmerPapierStrategie());
+            final var schere = new Spieler("Yoko", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Runde(papier, schere).spielen();
+            final var gewinner = new Partie(papier, schere).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(papier);
+            assertThat(gewinner).isPresent().contains(schere);
         }
 
         @Test
@@ -47,10 +47,10 @@ class RundeTest {
             final var stein = new Spieler("Bert", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Runde(schere, stein).spielen();
+            final var gewinner = new Partie(schere, stein).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(stein);
+            assertThat(gewinner).isPresent().contains(stein);
         }
 
         @Test
@@ -60,10 +60,10 @@ class RundeTest {
             final var schere = new Spieler("Robin", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Runde(stein, schere).spielen();
+            final var gewinner = new Partie(stein, schere).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(stein);
+            assertThat(gewinner).isPresent().contains(stein);
         }
 
     }
@@ -78,10 +78,10 @@ class RundeTest {
             final var schere = new Spieler("Butthead", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Runde(stein, schere).spielen();
+            final var gewinner = new Partie(stein, schere).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(stein);
+            assertThat(gewinner).isPresent().contains(stein);
         }
 
         @Test
@@ -91,10 +91,10 @@ class RundeTest {
             final var stein = new Spieler("Garfunkel", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Runde(schere, stein).spielen();
+            final var gewinner = new Partie(schere, stein).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(stein);
+            assertThat(gewinner).isPresent().contains(stein);
         }
 
         @Test
@@ -104,10 +104,10 @@ class RundeTest {
             final var papier = new Spieler("Brain", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Runde(stein, papier).spielen();
+            final var gewinner = new Partie(stein, papier).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(papier);
+            assertThat(gewinner).isPresent().contains(papier);
         }
 
         @Test
@@ -117,10 +117,10 @@ class RundeTest {
             final var stein = new Spieler("Dr. Watson", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Runde(papier, stein).spielen();
+            final var gewinner = new Partie(papier, stein).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(papier);
+            assertThat(gewinner).isPresent().contains(papier);
         }
 
     }
@@ -135,10 +135,10 @@ class RundeTest {
             final var stein = new Spieler("Hutch", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Runde(papier, stein).spielen();
+            final var gewinner = new Partie(papier, stein).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(papier);
+            assertThat(gewinner).isPresent().contains(papier);
         }
 
         @Test
@@ -148,10 +148,10 @@ class RundeTest {
             final var papier = new Spieler("Roy", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Runde(stein, papier).spielen();
+            final var gewinner = new Partie(stein, papier).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(papier);
+            assertThat(gewinner).isPresent().contains(papier);
         }
 
         @Test
@@ -161,10 +161,10 @@ class RundeTest {
             final var schere = new Spieler("Terrence Hill", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Runde(papier, schere).spielen();
+            final var gewinner = new Partie(papier, schere).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(schere);
+            assertThat(gewinner).isPresent().contains(schere);
         }
 
         @Test
@@ -174,10 +174,10 @@ class RundeTest {
             final var papier = new Spieler("Stitch", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Runde(schere, papier).spielen();
+            final var gewinner = new Partie(schere, papier).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(schere);
+            assertThat(gewinner).isPresent().contains(schere);
         }
 
     }
@@ -192,10 +192,10 @@ class RundeTest {
             final var auchSchere = new Spieler("Mr. Hide", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Runde(schere, auchSchere).spielen();
+            final var gewinner = new Partie(schere, auchSchere).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(schere);
+            assertThat(gewinner).isEmpty();
         }
 
         @Test
@@ -205,10 +205,10 @@ class RundeTest {
             final var auchStein = new Spieler("Elwood B.", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Runde(stein, auchStein).spielen();
+            final var gewinner = new Partie(stein, auchStein).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(stein);
+            assertThat(gewinner).isEmpty();
         }
 
         @Test
@@ -218,10 +218,10 @@ class RundeTest {
             final var auchPapier = new Spieler("Coyote", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Runde(papier, auchPapier).spielen();
+            final var gewinner = new Partie(papier, auchPapier).spielen();
 
             // then
-            assertThat(gewinner).isEqualTo(auchPapier);
+            assertThat(gewinner).isEmpty();
         }
 
 
