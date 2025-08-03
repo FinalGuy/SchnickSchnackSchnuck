@@ -1,6 +1,6 @@
 package de.tfojuth.schnick_schnack_schnuck.domain;
 
-public record Rundenanzahl(int anzahl) {
+public record Rundenanzahl(long anzahl) {
 
     public static final Rundenanzahl STANDARD = new Rundenanzahl(100);
 
@@ -12,6 +12,6 @@ public record Rundenanzahl(int anzahl) {
 
     @Override
     public String toString() {
-        return Integer.toString(anzahl);
+        return Long.toString(anzahl);
     }
 }
