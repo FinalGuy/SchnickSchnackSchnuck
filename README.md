@@ -1,13 +1,13 @@
-# SchnickSchnackSchnuck
+# Schnick Schnack Schnuck
 
-Eine **Kata** zur Implementierung des bekannten Kinder-Spiels **„Stein, Schere, Papier“** in Java 💥 ([github.com](https://github.com/FinalGuy/SchnickSchnackSchnuck?utm_source=chatgpt.com))
+Eine **Kata** zur Implementierung des bekannten Kinder-Spiels **„Stein, Schere, Papier“** in Java 💥
 
 
 
 ## 🎯 Features
 
 * Simuliert das klassische Spiel **Stein, Schere, Papier**
-* Ideal geeignet als **Übung für Clean Code & Tests** und zum **Modellieren einer einfachen Problem-Domäne** (nach DDD)
+* Ideal geeignet als **Übung für Clean Code & Tests** und zum **Modellieren einer einfachen Problem-Domäne** nach [DDD](https://en.wikipedia.org/wiki/Domain-driven_design)
 
 
 ## 🚀 Installation & Build
