@@ -1,0 +1,6 @@
+runden: 100
+spieler:
+  - name: "Gerald von Riva"
+    strategie: RANDOM
+  - name: "Yennefer von Vengerberg"
+    strategie: PAPER
