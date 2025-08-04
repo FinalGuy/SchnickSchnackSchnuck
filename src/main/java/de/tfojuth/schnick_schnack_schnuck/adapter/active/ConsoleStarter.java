@@ -9,8 +9,8 @@ import de.tfojuth.schnick_schnack_schnuck.domain.strategie.ZufaelligeStrategie;
 public class ConsoleStarter {
 
     public static void main(String[] args) {
-        final var spielerA = new Spieler("John Doe", new ImmerPapierStrategie());
-        final var spielerB = new Spieler("Jane Doe", new ZufaelligeStrategie());
+        final var spielerA = new Spieler("Asterix", new ImmerPapierStrategie());
+        final var spielerB = new Spieler("Obelix", new ZufaelligeStrategie());
         final var endergebnis = new Spiel(spielerA, spielerB, Rundenanzahl.STANDARD).starten();
         endergebnis.erzeugeAusgabe(new KonsolenausgabeSieg(), new KonsolenausgabeUnentschieden());
     }

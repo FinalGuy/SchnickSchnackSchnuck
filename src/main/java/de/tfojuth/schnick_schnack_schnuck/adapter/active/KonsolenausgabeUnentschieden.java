@@ -3,6 +3,7 @@ package de.tfojuth.schnick_schnack_schnuck.adapter.active;
 import com.github.lalyos.jfiglet.FigletFont;
 import de.tfojuth.schnick_schnack_schnuck.domain.Endergebnis;
 import de.tfojuth.schnick_schnack_schnuck.domain.Rundenanzahl;
+import de.tfojuth.schnick_schnack_schnuck.domain.Spieler;
 
 import java.io.IOException;
 
@@ -16,6 +17,11 @@ public class KonsolenausgabeUnentschieden implements Endergebnis.VorlageUnentsch
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void kontrahenten(Spieler spielerA, Spieler spielerB) {
+        output.append(String.format("Es spielt %s gegen %s", spielerA, spielerB));
     }
 
     @Override

@@ -9,6 +9,8 @@ public sealed interface Endergebnis permits Sieg, Unentschieden {
 
     interface VorlageSieg {
 
+        void kontrahenten(Spieler spielerA, Spieler spielerB);
+
         void gewinner(Spieler gewinner);
 
         void anzahlSiege(Rundenanzahl siege);
@@ -22,6 +24,8 @@ public sealed interface Endergebnis permits Sieg, Unentschieden {
     }
 
     interface VorlageUnentschieden {
+
+        void kontrahenten(Spieler spielerA, Spieler spielerB);
 
         void anzahlSpiele(Rundenanzahl spieleInsgesamt);
 

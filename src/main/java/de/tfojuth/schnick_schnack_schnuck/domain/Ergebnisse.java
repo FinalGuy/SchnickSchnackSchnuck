@@ -18,12 +18,12 @@ public class Ergebnisse {
         final var rundenanzahl = new Rundenanzahl(ergebnisse.size());
 
         if (gewonneneSpieleSpielerA > gewonneneSpieleSpielerB) {
-            return new Sieg(rundenanzahl, spielerA(), new Rundenanzahl(gewonneneSpieleSpielerA));
+            return new Sieg(spielerA(), spielerB(), rundenanzahl, spielerA(), new Rundenanzahl(gewonneneSpieleSpielerA));
         }
         if (gewonneneSpieleSpielerA < gewonneneSpieleSpielerB) {
-            return new Sieg(rundenanzahl, spielerB(), new Rundenanzahl(gewonneneSpieleSpielerB));
+            return new Sieg(spielerA(), spielerB(), rundenanzahl, spielerB(), new Rundenanzahl(gewonneneSpieleSpielerB));
         }
-        return new Unentschieden(rundenanzahl);
+        return new Unentschieden(spielerA(), spielerB(), rundenanzahl);
     }
 
     private Spieler spielerA() {

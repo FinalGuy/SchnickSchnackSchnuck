@@ -12,6 +12,11 @@ public class KonsolenausgabeSieg implements Endergebnis.VorlageSieg {
     private final StringBuffer output = new StringBuffer();
 
     @Override
+    public void kontrahenten(Spieler spielerA, Spieler spielerB) {
+        output.append(String.format("Es spielt %s gegen %s \n", spielerA, spielerB));
+    }
+
+    @Override
     public void gewinner(Spieler gewinner) {
         try {
             output.append(FigletFont.convertOneLine("Gewinner"));
