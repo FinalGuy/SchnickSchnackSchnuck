@@ -3,6 +3,7 @@ package de.tfojuth.schnick_schnack_schnuck.adapter.active;
 import de.tfojuth.schnick_schnack_schnuck.domain.Rundenanzahl;
 import de.tfojuth.schnick_schnack_schnuck.domain.Spieler;
 import de.tfojuth.schnick_schnack_schnuck.domain.strategie.ImmerPapierStrategie;
+import de.tfojuth.schnick_schnack_schnuck.domain.strategie.ImmerSchereStrategie;
 import org.junit.jupiter.api.Test;
 
 class KonsolenausgabeSiegTest {
@@ -12,8 +13,11 @@ class KonsolenausgabeSiegTest {
     @Test
     void ausgabeAnschauen() {
         // given
+        final var werner = new Spieler("Werner", new ImmerPapierStrategie());
+        final var nobelschroeder = new Spieler("Nobelschröder", new ImmerSchereStrategie());
         subject = new KonsolenausgabeSieg();
-        subject.gewinner(new Spieler("Werner", new ImmerPapierStrategie()));
+        subject.kontrahenten(werner, nobelschroeder);
+        subject.gewinner(werner);
         subject.anzahlSiege(new Rundenanzahl(42));
         subject.anzahlSpiele(new Rundenanzahl(100));
 

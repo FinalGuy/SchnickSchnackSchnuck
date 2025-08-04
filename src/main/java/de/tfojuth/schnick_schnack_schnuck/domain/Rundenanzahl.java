@@ -6,7 +6,7 @@ public record Rundenanzahl(long anzahl) {
 
     public Rundenanzahl {
         if (anzahl < 0) {
-            throw new IllegalArgumentException("Rundenanzahl darf nicht negativ sein");
+            throw new IllegalArgumentException("Rundenanzahl darf nicht negativ sein.");
         }
     }
 

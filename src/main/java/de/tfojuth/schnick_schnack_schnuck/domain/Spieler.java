@@ -4,8 +4,8 @@ import de.tfojuth.schnick_schnack_schnuck.domain.strategie.Strategie;
 
 public final class Spieler {
 
-    final String name;
-    final Strategie strategie;
+    private final String name;
+    private final Strategie strategie;
 
     public Spieler(String name, Strategie strategie) {
         this.name = name;

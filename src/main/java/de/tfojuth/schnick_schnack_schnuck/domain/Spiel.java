@@ -2,8 +2,8 @@ package de.tfojuth.schnick_schnack_schnuck.domain;
 
 public final class Spiel {
 
-    final Spieler spielerA, spielerB;
-    final Rundenanzahl rundenanzahl;
+    private final Spieler spielerA, spielerB;
+    private final Rundenanzahl rundenanzahl;
 
     public Spiel(final Spieler spielerA, final Spieler spielerB, final Rundenanzahl rundenanzahl) {
         this.spielerA = spielerA;

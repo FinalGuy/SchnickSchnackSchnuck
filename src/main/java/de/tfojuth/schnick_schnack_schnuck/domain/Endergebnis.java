@@ -17,7 +17,8 @@ public sealed interface Endergebnis permits Sieg, Unentschieden {
 
         void anzahlSpiele(Rundenanzahl spieleInsgesamt);
 
-//        void ergebnisse(Ergebnisse ergebnisse);
+        // TODO: Liste aller Spiele ausgeben
+        // void ergebnisse(Ergebnisse ergebnisse);
 
         void erzeugeAusgabe();
 
@@ -29,7 +30,8 @@ public sealed interface Endergebnis permits Sieg, Unentschieden {
 
         void anzahlSpiele(Rundenanzahl spieleInsgesamt);
 
-//        void ergebnisse(Ergebnisse ergebnisse);
+        // TODO: Liste aller Spiele ausgeben
+        // void ergebnisse(Ergebnisse ergebnisse);
 
         void erzeugeAusgabe();
 

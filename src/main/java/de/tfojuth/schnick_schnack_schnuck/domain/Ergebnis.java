@@ -2,14 +2,17 @@ package de.tfojuth.schnick_schnack_schnuck.domain;
 
 import java.util.Optional;
 
-public class Ergebnis {
+public final class Ergebnis {
 
-    final Spieler spielerA;
-    final Spieler spielerB;
+    private final Spieler spielerA;
+    private final Spieler spielerB;
     private final Symbol symbolSpielerA;
     private final Symbol symbolSpielerB;
 
-    public Ergebnis(Spieler spielerA, Symbol symbolSpielerA, Spieler spielerB, Symbol symbolSpielerB) {
+    public Ergebnis(final Spieler spielerA,
+                    final Symbol symbolSpielerA,
+                    final Spieler spielerB,
+                    final Symbol symbolSpielerB) {
         this.spielerA = spielerA;
         this.symbolSpielerA = symbolSpielerA;
         this.spielerB = spielerB;
@@ -32,5 +35,13 @@ public class Ergebnis {
             return Optional.of(spielerB);
         }
         return Optional.empty();
+    }
+
+    public Spieler spielerA() {
+        return spielerA;
+    }
+
+    public Spieler spielerB() {
+        return spielerB;
     }
 }

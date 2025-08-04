@@ -2,19 +2,14 @@ package de.tfojuth.schnick_schnack_schnuck.domain;
 
 public final class Partie {
 
-    final Spieler spielerA, spielerB;
+    private final Spieler spielerA;
+    private final Spieler spielerB;
 
-    public Partie(Spieler spielerA, Spieler spielerB) {
+    public Partie(final Spieler spielerA, final Spieler spielerB) {
         this.spielerA = spielerA;
         this.spielerB = spielerB;
     }
 
-    /**
-     * Lässt beide Spieler gegeneinander antreten.
-     *
-     * @return Das @{@link Ergebnis} der Partie.
-     *
-     */
     public Ergebnis spielen() {
         final var symbolSpielerA = spielerA.weahleSymbol();
         final var symbolSpielerB = spielerB.weahleSymbol();

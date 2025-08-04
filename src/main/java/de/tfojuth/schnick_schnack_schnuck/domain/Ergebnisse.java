@@ -27,10 +27,10 @@ public class Ergebnisse {
     }
 
     private Spieler spielerA() {
-        return ergebnisse.getFirst().spielerA;
+        return ergebnisse.getFirst().spielerA();
     }
 
     private Spieler spielerB() {
-        return ergebnisse.getFirst().spielerB;
+        return ergebnisse.getFirst().spielerB();
     }
 }

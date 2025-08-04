@@ -1,9 +1,9 @@
 package de.tfojuth.schnick_schnack_schnuck.adapter.active;
 
 import de.tfojuth.schnick_schnack_schnuck.domain.Rundenanzahl;
+import de.tfojuth.schnick_schnack_schnuck.domain.Spieler;
+import de.tfojuth.schnick_schnack_schnuck.domain.strategie.ImmerSchereStrategie;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class KonsolenausgabeUnentschiedenTest {
 
@@ -12,7 +12,10 @@ class KonsolenausgabeUnentschiedenTest {
     @Test
     void ausgabeAnschauen() {
         // given
+        final var ryu = new Spieler("Ryu", new ImmerSchereStrategie());
+        final var chunLi = new Spieler("Chun Li", new ImmerSchereStrategie());
         subject = new KonsolenausgabeUnentschieden();
+        subject.kontrahenten(ryu, chunLi);
         subject.anzahlSpiele(new Rundenanzahl(100));
 
         // when

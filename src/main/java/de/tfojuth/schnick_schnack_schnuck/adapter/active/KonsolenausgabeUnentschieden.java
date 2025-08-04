@@ -7,13 +7,15 @@ import de.tfojuth.schnick_schnack_schnuck.domain.Spieler;
 
 import java.io.IOException;
 
-public class KonsolenausgabeUnentschieden implements Endergebnis.VorlageUnentschieden {
+public final class KonsolenausgabeUnentschieden implements Endergebnis.VorlageUnentschieden {
 
-    private final StringBuffer output = new StringBuffer();
+    private Spieler spielerA;
+    private Spieler spielerB;
+    private Rundenanzahl spieleInsgesamt;
 
-    public KonsolenausgabeUnentschieden() {
+    private static String erzeugeAsciiArt() {
         try {
-            this.output.append(FigletFont.convertOneLine("Unentschieden!"));
+            return FigletFont.convertOneLine("Unentschieden!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -21,16 +23,21 @@ public class KonsolenausgabeUnentschieden implements Endergebnis.VorlageUnentsch
 
     @Override
     public void kontrahenten(Spieler spielerA, Spieler spielerB) {
-        output.append(String.format("Es spielt %s gegen %s", spielerA, spielerB));
+        this.spielerA = spielerA;
+        this.spielerB = spielerB;
     }
 
     @Override
     public void anzahlSpiele(final Rundenanzahl spieleInsgesamt) {
-        output.append(String.format("\tnach %d Spielen", spieleInsgesamt.anzahl()));
+        this.spieleInsgesamt = spieleInsgesamt;
     }
 
     @Override
     public void erzeugeAusgabe() {
+        final var output = new StringBuffer();
+        output.append(String.format("Es spielt %s gegen %s\n", spielerA, spielerB));
+        output.append(erzeugeAsciiArt());
+        output.append(String.format("\tnach %d Spielen", spieleInsgesamt.anzahl()));
         System.out.println(output);
     }
 }
