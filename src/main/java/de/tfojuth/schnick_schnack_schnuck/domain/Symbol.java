@@ -23,9 +23,5 @@ public enum Symbol {
         }
     };
 
-    String toAsciiArt() {
-        return "~ ascii art missing ~";
-    }
-
     public abstract boolean gewinntGegen(Symbol anderesSymbol);
 }

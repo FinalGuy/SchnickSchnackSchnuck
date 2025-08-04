@@ -43,7 +43,6 @@ class SpielTest {
         final var ergebnis = subject.starten();
 
         // then
-        System.out.println(ergebnis);
         assertThat(ergebnis).isInstanceOfSatisfying(Sieg.class, sieg -> {
             assertThat(sieg.gewinner()).isEqualTo(harleyQuinn);
             assertThat(sieg.gespielteRunden()).isEqualTo(rundenanzahl);
@@ -63,7 +62,6 @@ class SpielTest {
         final var ergebnis = subject.starten();
 
         // then
-        System.out.println(ergebnis);
         assertThat(ergebnis).isInstanceOfSatisfying(Unentschieden.class, unentschieden -> {
             assertThat(unentschieden.gespielteRunden()).isEqualTo(rundenanzahl);
         });
@@ -81,7 +79,6 @@ class SpielTest {
         final var ergebnis = subject.starten();
 
         // then
-        System.out.println(ergebnis);
         assertThat(ergebnis.gespielteRunden()).isEqualTo(rundenanzahl);
     }
 }

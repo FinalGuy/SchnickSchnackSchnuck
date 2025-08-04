@@ -21,10 +21,12 @@ class PartieTest {
             final var papier = new Spieler("Bob", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Partie(schere, papier).spielen();
+            final var ergebnis = new Partie(schere, papier).spielen();
 
             // then
-            assertThat(gewinner).isPresent().contains(schere);
+            assertThat(ergebnis.gewinner()).isPresent().contains(schere);
+            assertThat(ergebnis.gewonnenVonSpielerA()).isTrue();
+            assertThat(ergebnis.gewonnenVonSpielerB()).isFalse();
         }
 
         @Test
@@ -34,7 +36,7 @@ class PartieTest {
             final var schere = new Spieler("Yoko", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Partie(papier, schere).spielen();
+            final var gewinner = new Partie(papier, schere).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(schere);
@@ -47,7 +49,7 @@ class PartieTest {
             final var stein = new Spieler("Bert", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Partie(schere, stein).spielen();
+            final var gewinner = new Partie(schere, stein).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(stein);
@@ -60,7 +62,7 @@ class PartieTest {
             final var schere = new Spieler("Robin", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Partie(stein, schere).spielen();
+            final var gewinner = new Partie(stein, schere).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(stein);
@@ -78,7 +80,7 @@ class PartieTest {
             final var schere = new Spieler("Butthead", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Partie(stein, schere).spielen();
+            final var gewinner = new Partie(stein, schere).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(stein);
@@ -91,7 +93,7 @@ class PartieTest {
             final var stein = new Spieler("Garfunkel", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Partie(schere, stein).spielen();
+            final var gewinner = new Partie(schere, stein).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(stein);
@@ -104,7 +106,7 @@ class PartieTest {
             final var papier = new Spieler("Brain", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Partie(stein, papier).spielen();
+            final var gewinner = new Partie(stein, papier).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(papier);
@@ -117,7 +119,7 @@ class PartieTest {
             final var stein = new Spieler("Dr. Watson", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Partie(papier, stein).spielen();
+            final var gewinner = new Partie(papier, stein).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(papier);
@@ -135,7 +137,7 @@ class PartieTest {
             final var stein = new Spieler("Hutch", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Partie(papier, stein).spielen();
+            final var gewinner = new Partie(papier, stein).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(papier);
@@ -148,7 +150,7 @@ class PartieTest {
             final var papier = new Spieler("Roy", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Partie(stein, papier).spielen();
+            final var gewinner = new Partie(stein, papier).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(papier);
@@ -161,7 +163,7 @@ class PartieTest {
             final var schere = new Spieler("Terrence Hill", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Partie(papier, schere).spielen();
+            final var gewinner = new Partie(papier, schere).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(schere);
@@ -174,7 +176,7 @@ class PartieTest {
             final var papier = new Spieler("Stitch", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Partie(schere, papier).spielen();
+            final var gewinner = new Partie(schere, papier).spielen().gewinner();
 
             // then
             assertThat(gewinner).isPresent().contains(schere);
@@ -192,7 +194,7 @@ class PartieTest {
             final var auchSchere = new Spieler("Mr. Hide", new ImmerSchereStrategie());
 
             // when
-            final var gewinner = new Partie(schere, auchSchere).spielen();
+            final var gewinner = new Partie(schere, auchSchere).spielen().gewinner();
 
             // then
             assertThat(gewinner).isEmpty();
@@ -205,7 +207,7 @@ class PartieTest {
             final var auchStein = new Spieler("Elwood B.", new ImmerSteinStrategie());
 
             // when
-            final var gewinner = new Partie(stein, auchStein).spielen();
+            final var gewinner = new Partie(stein, auchStein).spielen().gewinner();
 
             // then
             assertThat(gewinner).isEmpty();
@@ -218,7 +220,7 @@ class PartieTest {
             final var auchPapier = new Spieler("Coyote", new ImmerPapierStrategie());
 
             // when
-            final var gewinner = new Partie(papier, auchPapier).spielen();
+            final var gewinner = new Partie(papier, auchPapier).spielen().gewinner();
 
             // then
             assertThat(gewinner).isEmpty();

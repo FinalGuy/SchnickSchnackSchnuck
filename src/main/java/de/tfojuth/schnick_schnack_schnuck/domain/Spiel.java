@@ -12,11 +12,11 @@ public final class Spiel {
     }
 
     public Endergebnis starten() {
-        final var ergebnisse = new Ergebnisse(spielerA, spielerB);
+        final var ergebnisse = new Ergebnisse();
         final var partie = new Partie(spielerA, spielerB);
         for (int i = 0; i < rundenanzahl.anzahl(); i++) {
-            partie.spielen().ifPresent(ergebnisse::notiereGewinner);
+            ergebnisse.notiereErgebnis(partie.spielen());
         }
-        return ergebnisse.berechneEndergebnis(rundenanzahl);
+        return ergebnisse.berechneEndergebnis();
     }
 }

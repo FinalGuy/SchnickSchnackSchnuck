@@ -1,7 +1,5 @@
 package de.tfojuth.schnick_schnack_schnuck.domain;
 
-import java.util.Optional;
-
 public final class Partie {
 
     final Spieler spielerA, spielerB;
@@ -14,22 +12,13 @@ public final class Partie {
     /**
      * Lässt beide Spieler gegeneinander antreten.
      *
-     * @return Entweder
-     * <ul>
-     *     <li>ein {@code Optional} gefüllt mit dem Gewinner der Runde</li>
-     *     <li>oder ein leeres {@code Optional} im Falle eines Unentschiedens.</li>
-     * </ul>
+     * @return Das @{@link Ergebnis} der Partie.
+     *
      */
-    public Optional<Spieler> spielen() {
+    public Ergebnis spielen() {
         final var symbolSpielerA = spielerA.weahleSymbol();
         final var symbolSpielerB = spielerB.weahleSymbol();
-        if (symbolSpielerA.gewinntGegen(symbolSpielerB)) {
-            return Optional.of(spielerA);
-        }
-        if (symbolSpielerB.gewinntGegen(symbolSpielerA)) {
-            return Optional.of(spielerB);
-        }
-        return Optional.empty();
+        return new Ergebnis(spielerA, symbolSpielerA, spielerB, symbolSpielerB);
     }
 
 }

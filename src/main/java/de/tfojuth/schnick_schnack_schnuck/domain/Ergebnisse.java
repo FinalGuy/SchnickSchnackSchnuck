@@ -5,30 +5,32 @@ import java.util.List;
 
 public class Ergebnisse {
 
-    private final List<Spieler> gewonneneRundenProSpieler = new ArrayList<>();
-    private final Spieler spielerA;
-    private final Spieler spielerB;
+    private final List<Ergebnis> ergebnisse = new ArrayList<>();
 
-    public Ergebnisse(Spieler spielerA, Spieler spielerB) {
-        this.spielerA = spielerA;
-        this.spielerB = spielerB;
+    public void notiereErgebnis(Ergebnis ergebnis) {
+        // TODO: Verifizieren, dass die Ergebnisse immer die selben Spieler haben
+        ergebnisse.add(ergebnis);
     }
 
-    public void notiereGewinner(final Spieler gewinner) {
-        gewonneneRundenProSpieler.add(gewinner);
-    }
-
-    public Endergebnis berechneEndergebnis(Rundenanzahl rundenanzahl) {
-        long gewonneneSpieleSpielerA = gewonneneRundenProSpieler.stream().filter(spieler -> spieler.equals(spielerA)).count();
-        long gewonneneSpieleSpielerB = gewonneneRundenProSpieler.stream().filter(spieler -> spieler.equals(spielerB)).count();
+    public Endergebnis berechneEndergebnis() {
+        final var gewonneneSpieleSpielerA = ergebnisse.stream().filter(Ergebnis::gewonnenVonSpielerA).count();
+        final var gewonneneSpieleSpielerB = ergebnisse.stream().filter(Ergebnis::gewonnenVonSpielerB).count();
+        final var rundenanzahl = new Rundenanzahl(ergebnisse.size());
 
         if (gewonneneSpieleSpielerA > gewonneneSpieleSpielerB) {
-            return new Sieg(rundenanzahl, spielerA, new Rundenanzahl(gewonneneSpieleSpielerA));
+            return new Sieg(rundenanzahl, spielerA(), new Rundenanzahl(gewonneneSpieleSpielerA));
         }
         if (gewonneneSpieleSpielerA < gewonneneSpieleSpielerB) {
-            return new Sieg(rundenanzahl, spielerB, new Rundenanzahl(gewonneneSpieleSpielerB));
+            return new Sieg(rundenanzahl, spielerB(), new Rundenanzahl(gewonneneSpieleSpielerB));
         }
         return new Unentschieden(rundenanzahl);
     }
 
+    private Spieler spielerA() {
+        return ergebnisse.getFirst().spielerA;
+    }
+
+    private Spieler spielerB() {
+        return ergebnisse.getFirst().spielerB;
+    }
 }

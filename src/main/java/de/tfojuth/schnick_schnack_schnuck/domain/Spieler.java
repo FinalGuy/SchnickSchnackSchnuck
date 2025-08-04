@@ -16,6 +16,10 @@ public final class Spieler {
         return strategie.naechstesSymbol();
     }
 
+    public String name(){
+        return name;
+    }
+
     @Override
     public String toString() {
         return String.format("%s (spielt Strategie '%s')", name, strategie);
